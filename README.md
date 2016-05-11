@@ -52,7 +52,7 @@ gem 'ransack'
 Or, if you would like to use the latest updates, use the `master` branch:
 
 ```ruby
-gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack', github: 'sebt-team/ransack'
 ```
 
 September 2015 update: If you are using Rails 5 (master) and need pagination
