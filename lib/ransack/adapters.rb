@@ -6,10 +6,10 @@ module Ransack
     end
 
     def self.instantiate_object_mapper
-      if defined?(::ActiveRecord::Base)
+      if defined?(::Mongoid)
         ActiveRecordAdapter.new
-      elsif defined?(::Mongoid)
-        MongoidAdapter.new
+      elsif defined?(::ActiveRecord::Base)
+        
       end
     end
 
