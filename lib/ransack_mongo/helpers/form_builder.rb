@@ -12,14 +12,14 @@ module ActionView::Helpers::Tags
   end
 end
 
-RANSACK_FORM_BUILDER = 'RANSACK_FORM_BUILDER'.freeze
+RANSACK_MONGO_FORM_BUILDER = 'RANSACK_MONGO_FORM_BUILDER'.freeze
 
 require 'simple_form' if
-  (ENV[RANSACK_FORM_BUILDER] || ''.freeze).match('SimpleForm'.freeze)
+  (ENV[RANSACK_MONGO_FORM_BUILDER] || ''.freeze).match('SimpleForm'.freeze)
 
 module RansackMongo
   module Helpers
-    class FormBuilder < (ENV[RANSACK_FORM_BUILDER].try(:constantize) ||
+    class FormBuilder < (ENV[RANSACK_MONGO_FORM_BUILDER].try(:constantize) ||
       ActionView::Helpers::FormBuilder)
 
       def label(method, *args, &block)

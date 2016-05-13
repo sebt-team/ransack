@@ -671,13 +671,13 @@ artists.result.to_sql
 ### Using SimpleForm
 
 If you would like to combine the RansackMongo and SimpleForm form builders, set the
-`RANSACK_FORM_BUILDER` environment variable before Rails boots up, e.g. in
+`RANSACK_MONGO_FORM_BUILDER` environment variable before Rails boots up, e.g. in
 `config/application.rb` before `require 'rails/all'` as shown below (and add
 `gem 'simple_form'` in your Gemfile).
 
 ```ruby
 require File.expand_path('../boot', __FILE__)
-ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
+ENV['RANSACK_MONGO_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 require 'rails/all'
 ```
 
