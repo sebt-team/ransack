@@ -3,7 +3,7 @@ require 'sham'
 require 'faker'
 require 'pry'
 require 'mongoid'
-require 'ransack'
+require 'ransack_mongo'
 
 I18n.enforce_available_locales = false
 Time.zone = 'Eastern Time (US & Canada)'
@@ -31,11 +31,11 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     if ENV['DB'] == 'mongoid4'
-      message = "Running Ransack specs with #{Mongoid.default_session.inspect
+      message = "Running RansackMongo specs with #{Mongoid.default_session.inspect
         }, Mongoid #{Mongoid::VERSION}, Moped #{Moped::VERSION
         }, Origin #{Origin::VERSION} and Ruby #{RUBY_VERSION}"
     else
-      message = "Running Ransack specs with #{Mongoid.default_client.inspect
+      message = "Running RansackMongo specs with #{Mongoid.default_client.inspect
         }, Mongoid #{Mongoid::VERSION}, Mongo driver #{Mongo::VERSION}"
     end
     line = '=' * message.length
@@ -46,7 +46,7 @@ RSpec.configure do |config|
   config.before(:all)   { Sham.reset(:before_all) }
   config.before(:each)  { Sham.reset(:before_each) }
 
-  config.include RansackHelper
+  config.include RansackMongoHelper
 end
 
 RSpec::Matchers.define :be_like do |expected|

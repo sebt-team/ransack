@@ -1,6 +1,6 @@
 require 'mongoid_spec_helper'
 
-module Ransack
+module RansackMongo
   describe Predicate do
 
     before do

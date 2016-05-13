@@ -1,6 +1,6 @@
 require 'mongoid_spec_helper'
 
-module Ransack
+module RansackMongo
   module Nodes
     describe Condition do
 
@@ -30,7 +30,7 @@ module Ransack
 
         context "when ignore_unknown_conditions is false" do
           before do
-            Ransack.configure { |config| config.ignore_unknown_conditions = false }
+            RansackMongo.configure { |config| config.ignore_unknown_conditions = false }
           end
 
           specify { expect { subject }.to raise_error ArgumentError }
@@ -38,7 +38,7 @@ module Ransack
 
         context "when ignore_unknown_conditions is true" do
           before do
-            Ransack.configure { |config| config.ignore_unknown_conditions = true }
+            RansackMongo.configure { |config| config.ignore_unknown_conditions = true }
           end
 
           specify { expect(subject).to be_nil }

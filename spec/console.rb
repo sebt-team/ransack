@@ -2,7 +2,7 @@ Bundler.setup
 require 'machinist/active_record'
 require 'sham'
 require 'faker'
-require 'ransack'
+require 'ransack_mongo'
 
 Dir[File.expand_path('../../spec/{helpers,support,blueprints}/*.rb', __FILE__)]
 .each do |f|

@@ -1,7 +1,7 @@
 require 'machinist/active_record'
 require 'sham'
 require 'faker'
-require 'ransack'
+require 'ransack_mongo'
 require 'pry'
 
 I18n.enforce_available_locales = false
@@ -28,7 +28,7 @@ RSpec.configure do |config|
   config.alias_it_should_behave_like_to :it_has_behavior, 'has behavior'
 
   config.before(:suite) do
-    message = "Running Ransack specs with #{
+    message = "Running RansackMongo specs with #{
       ActiveRecord::Base.connection.adapter_name
       }, Active Record #{::ActiveRecord::VERSION::STRING}, Arel #{Arel::VERSION
       } and Ruby #{RUBY_VERSION}"
@@ -40,7 +40,7 @@ RSpec.configure do |config|
   config.before(:all)   { Sham.reset(:before_all) }
   config.before(:each)  { Sham.reset(:before_each) }
 
-  config.include RansackHelper
+  config.include RansackMongoHelper
 end
 
 RSpec::Matchers.define :be_like do |expected|

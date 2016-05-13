@@ -1,45 +1,45 @@
-# Ransack
+# RansackMongo
 
 [![Build Status](https://travis-ci.org/activerecord-hackery/ransack.svg)]
 (https://travis-ci.org/activerecord-hackery/ransack)
 [![Gem Version](https://badge.fury.io/rb/ransack.svg)]
 (http://badge.fury.io/rb/ransack)
-[![Code Climate](https://codeclimate.com/github/activerecord-hackery/ransack/badges/gpa.svg)]
+[![Code Climate](https://codeclimate.com/github/activerecord-hackery/ransack_mongo/badges/gpa.svg)]
 (https://codeclimate.com/github/activerecord-hackery/ransack)
 
-Ransack is a rewrite of [MetaSearch]
+RansackMongo is a rewrite of [MetaSearch]
 (https://github.com/activerecord-hackery/meta_search)
 created by [Ernie Miller](http://twitter.com/erniemiller)
 and maintained by [Ryan Bigg](http://twitter.com/ryanbigg),
 [Jon Atack](http://twitter.com/jonatack) and a great group of [contributors]
-(https://github.com/activerecord-hackery/ransack/graphs/contributors).
+(https://github.com/activerecord-hackery/ransack_mongo/graphs/contributors).
 While it supports many of the same features as MetaSearch, its underlying
 implementation differs greatly from MetaSearch,
 and backwards compatibility is not a design goal.
 
-Ransack enables the creation of both simple and
+RansackMongo enables the creation of both simple and
 [advanced](http://ransack-demo.herokuapp.com/users/advanced_search)
 search forms for your Ruby on Rails application (demo source code
 [here](https://github.com/activerecord-hackery/ransack_demo)).
 If you're looking for something that simplifies query generation at the model
-or controller layer, you're probably not looking for Ransack (or MetaSearch,
+or controller layer, you're probably not looking for RansackMongo (or MetaSearch,
 for that matter). Try [Squeel](https://github.com/activerecord-hackery/squeel)
 instead.
 
 If you're viewing this at
 [github.com/activerecord-hackery/ransack](https://github.com/activerecord-hackery/ransack),
 you're reading the documentation for the master branch with the latest features.
-[View documentation for the last release (1.7.0).](https://github.com/activerecord-hackery/ransack/tree/v1.7.0)
+[View documentation for the last release (1.7.0).](https://github.com/activerecord-hackery/ransack_mongo/tree/v1.7.0)
 
 ## Getting started
 
-Ransack is compatible with Rails 3, 4 and 5 on Ruby 1.9 and later.
+RansackMongo is compatible with Rails 3, 4 and 5 on Ruby 1.9 and later.
 JRuby 9 ought to work as well (see
 [this](https://github.com/activerecord-hackery/polyamorous/issues/17)).
 If you are using Ruby 1.8 or an earlier JRuby and run into compatibility
-issues, you can use an earlier version of Ransack, say, up to 1.3.0.
+issues, you can use an earlier version of RansackMongo, say, up to 1.3.0.
 
-Ransack works out-of-the-box with Active Record and also features limited
+RansackMongo works out-of-the-box with Active Record and also features limited
 support for Mongoid 4 and 5 (without associations, further details
 [below](https://github.com/activerecord-hackery/ransack#mongoid)).
 
@@ -56,7 +56,7 @@ gem 'ransack', github: 'sebt-team/ransack'
 ```
 
 September 2015 update: If you are using Rails 5 (master) and need pagination
-that works with Ransack, there is an
+that works with RansackMongo, there is an
 [updated version of the `will_paginate` gem here](https://github.com/jonatack/will_paginate).
 It is also optimized for Ruby 2.2+. To use it, in your Gemfile:
 `gem 'will_paginate', github: 'jonatack/will_paginate'`.
@@ -64,13 +64,13 @@ It is also optimized for Ruby 2.2+. To use it, in your Gemfile:
 ## Issues tracker
 
 * Before filing an issue, please read the [Contributing Guide](CONTRIBUTING.md).
-* File an issue if a bug is caused by Ransack, is new (has not already been reported), and _can be reproduced from the information you provide_.
+* File an issue if a bug is caused by RansackMongo, is new (has not already been reported), and _can be reproduced from the information you provide_.
 * Contributions are welcome, but please do not add "+1" comments to issues or pull requests :smiley:
 * Please do not use the issue tracker for personal support requests. Stack Overflow is a better place for that where a wider community can help you!
 
 ## Usage
 
-Ransack can be used in one of two modes, simple or advanced.
+RansackMongo can be used in one of two modes, simple or advanced.
 
 ### Simple Mode
 
@@ -83,15 +83,15 @@ If you're coming from MetaSearch, things to note:
   This is primarily to shorten query strings, though advanced queries (below)
   will still run afoul of URL length limits in most browsers and require a
   switch to HTTP POST requests. This key is [configurable]
-  (https://github.com/activerecord-hackery/ransack/wiki/Configuration).
+  (https://github.com/activerecord-hackery/ransack_mongo/wiki/Configuration).
 
-  2. `form_for` is now `search_form_for`, and validates that a Ransack::Search
+  2. `form_for` is now `search_form_for`, and validates that a RansackMongo::Search
   object is passed to it.
 
   3. Common ActiveRecord::Relation methods are no longer delegated by the
   search object. Instead, you will get your search results (an
   ActiveRecord::Relation in the case of the ActiveRecord adapter) via a call to
-  `Ransack#result`.
+  `RansackMongo#result`.
 
 ####In your controller
 
@@ -116,11 +116,11 @@ end
 
 ####In your view
 
-The two primary Ransack view helpers are `search_form_for` and `sort_link`,
+The two primary RansackMongo view helpers are `search_form_for` and `sort_link`,
 which are defined in
-[Ransack::Helpers::FormHelper](lib/ransack/helpers/form_helper.rb).
+[RansackMongo::Helpers::FormHelper](lib/ransack_mongo/helpers/form_helper.rb).
 
-####Ransack's `search_form_for` helper replaces `form_for` for creating the view search form
+####RansackMongo's `search_form_for` helper replaces `form_for` for creating the view search form
 
 ```erb
 <%= search_form_for @q do |f| %>
@@ -143,9 +143,9 @@ which are defined in
 
 `cont` (contains) and `start` (starts with) are just two of the available
 search predicates. See
-[Constants](https://github.com/activerecord-hackery/ransack/blob/master/lib/ransack/constants.rb)
+[Constants](https://github.com/activerecord-hackery/ransack_mongo/blob/master/lib/ransack_mongo/constants.rb)
 for a full list and the
-[wiki](https://github.com/activerecord-hackery/ransack/wiki/Basic-Searching)
+[wiki](https://github.com/activerecord-hackery/ransack_mongo/wiki/Basic-Searching)
 for more information.
 
 The `search_form_for` answer format can be set like this:
@@ -156,7 +156,7 @@ The `search_form_for` answer format can be set like this:
 <%= search_form_for(@q, format: :json) do |f| %>
 ```
 
-####Ransack's `sort_link` helper creates table headers that are sortable links
+####RansackMongo's `sort_link` helper creates table headers that are sortable links
 
 ```erb
 <%= sort_link(@q, :name) %>
@@ -178,7 +178,7 @@ You can use a block if the link markup is hard to fit into the label parameter:
 
 With a polymorphic association, you may need to specify the name of the link
 explicitly to avoid an `uninitialized constant Model::Xxxable` error (see issue
-[#421](https://github.com/activerecord-hackery/ransack/issues/421)):
+[#421](https://github.com/activerecord-hackery/ransack_mongo/issues/421)):
 
 ```erb
 <%= sort_link(@q, :xxxable_of_Ymodel_type_some_attribute, 'Attribute Name') %>
@@ -192,7 +192,7 @@ You can also sort on multiple fields by specifying an ordered array:
 
 In the example above, clicking the link will sort by `last_name` and then
 `first_name`. Specifying the sort direction on a field in the array tells
-Ransack to _always_ sort that particular field in the specified direction.
+RansackMongo to _always_ sort that particular field in the specified direction.
 
 Multiple `default_order` fields may also be specified with a hash:
 
@@ -216,7 +216,7 @@ Alternatively, all sort links may be displayed without the order indicator arrow
 by adding this to an initializer file like `config/initializers/ransack.rb`:
 
 ```ruby
-Ransack.configure do |c|
+RansackMongo.configure do |c|
   c.hide_sort_order_indicators = true
 end
 ```
@@ -256,13 +256,13 @@ end
                         html: { method: :post } do |f| %>
 ```
 
-Once you've done so, you can make use of the helpers in [Ransack::Helpers::FormBuilder](lib/ransack/helpers/form_builder.rb) to
+Once you've done so, you can make use of the helpers in [RansackMongo::Helpers::FormBuilder](lib/ransack_mongo/helpers/form_builder.rb) to
 construct much more complex search forms, such as the one on the
 [demo page](http://ransack-demo.heroku.com) (source code [here](https://github.com/activerecord-hackery/ransack_demo)).
 
-### Ransack #search method
+### RansackMongo #search method
 
-Ransack will try to to make the class method `#search` available in your
+RansackMongo will try to to make the class method `#search` available in your
 models, but if `#search` has already been defined elsewhere, you can always use
 the default `#ransack` class method. So the following are equivalent:
 
@@ -273,22 +273,22 @@ Article.search(params[:q])
 
 Users have reported issues of `#search` name conflicts with other gems, so
 the `#search` method alias will be deprecated in the next major version of
-Ransack (2.0). It's advisable to use the default `#ransack` instead.
+RansackMongo (2.0). It's advisable to use the default `#ransack` instead.
 
-For now, if Ransack's `#search` method conflicts with the name of another
+For now, if RansackMongo's `#search` method conflicts with the name of another
 method named `search` in your code or another gem, you may resolve it either by
-patching the `extended` class_method in `Ransack::Adapters::ActiveRecord::Base`
+patching the `extended` class_method in `RansackMongo::Adapters::ActiveRecord::Base`
 to remove the line `alias :search :ransack unless base.respond_to? :search`, or
-by placing the following line in your Ransack initializer file at
+by placing the following line in your RansackMongo initializer file at
 `config/initializers/ransack.rb`:
 
 ```ruby
-Ransack::Adapters::ActiveRecord::Base.class_eval('remove_method :search')
+RansackMongo::Adapters::ActiveRecord::Base.class_eval('remove_method :search')
 ```
 
 ### Associations
 
-You can easily use Ransack to search for objects in `has_many` and `belongs_to`
+You can easily use RansackMongo to search for objects in `has_many` and `belongs_to`
 associations.
 
 Given these associations...
@@ -352,9 +352,9 @@ If you have trouble sorting on associations, try using an SQL string with the
 pluralized table (`'departments.title'`,`'employees.last_name'`) instead of the
 symbolized association (`:department_title)`, `:employees_last_name`).
 
-### Ransack Aliases
+### RansackMongo Aliases
 
-You can customize the attribute names for your Ransack searches by using a
+You can customize the attribute names for your RansackMongo searches by using a
 `ransack_alias`. This is particularly useful for long attribute names that are
 necessary when querying associations or multiple columns.
 
@@ -378,13 +378,13 @@ query parameters in your URLs.
 <% end %>
 ```
 
-### Using Ransackers to add custom search functions via Arel
+### Using RansackMongoers to add custom search functions via Arel
 
-The main premise behind Ransack is to provide access to
-**Arel predicate methods**. Ransack provides special methods, called
+The main premise behind RansackMongo is to provide access to
+**Arel predicate methods**. RansackMongo provides special methods, called
 _ransackers_, for creating additional search functions via Arel. More
 information about `ransacker` methods can be found [here in the wiki]
-(https://github.com/activerecord-hackery/ransack/wiki/Using-Ransackers).
+(https://github.com/activerecord-hackery/ransack_mongo/wiki/Using-RansackMongoers).
 Feel free to contribute working `ransacker` code examples to the wiki!
 
 ### Problem with DISTINCT selects
@@ -444,12 +444,12 @@ end
 By default, searching and sorting are authorized on any column of your model
 and no class methods/scopes are whitelisted.
 
-Ransack adds four methods to `ActiveRecord::Base` that you can redefine as
+RansackMongo adds four methods to `ActiveRecord::Base` that you can redefine as
 class methods in your models to apply selective authorization:
 `ransackable_attributes`, `ransackable_associations`, `ransackable_scopes` and
 `ransortable_attributes`.
 
-Here is how these four methods are implemented in Ransack:
+Here is how these four methods are implemented in RansackMongo:
 
 ```ruby
   # `ransackable_attributes` by default returns all column names
@@ -485,7 +485,7 @@ Here is how these four methods are implemented in Ransack:
   end
 ```
 
-Any values not returned from these methods will be ignored by Ransack, i.e.
+Any values not returned from these methods will be ignored by RansackMongo, i.e.
 they are not authorized.
 
 All four methods can receive a single optional parameter, `auth_object`. When
@@ -556,7 +556,7 @@ Trying it out in `rails console`:
 => SELECT "articles".* FROM "articles"  WHERE "articles"."id" = 1
 ```
 
-That's it! Now you know how to whitelist/blacklist various elements in Ransack.
+That's it! Now you know how to whitelist/blacklist various elements in RansackMongo.
 
 ### Using Scopes/Class Methods
 
@@ -600,15 +600,15 @@ other mechanism that will convert it to a string, the true value may not be
 passed to the ransackable scope unless you wrap it in an array
 (i.e. `activated: ['true']`). This is currently resolved in Rails 5 :smiley:
 
-Scopes are a recent addition to Ransack and currently have a few caveats:
+Scopes are a recent addition to RansackMongo and currently have a few caveats:
 First, a scope involving child associations needs to be defined in the parent
 table model, not in the child model. Second, scopes with an array as an
 argument are not easily usable yet, because the array currently needs to be
 wrapped in an array to function (see
-[this issue](https://github.com/activerecord-hackery/ransack/issues/404)),
-which is not compatible with Ransack form helpers. For this use case, it may be
+[this issue](https://github.com/activerecord-hackery/ransack_mongo/issues/404)),
+which is not compatible with RansackMongo form helpers. For this use case, it may be
 better for now to use [ransackers]
-(https://github.com/activerecord-hackery/ransack/wiki/Using-Ransackers) instead,
+(https://github.com/activerecord-hackery/ransack_mongo/wiki/Using-RansackMongoers) instead,
 where feasible. Pull requests with solutions and tests are welcome!
 
 ### Grouping queries by OR instead of AND
@@ -634,7 +634,7 @@ Alternatively, trying it in the Rails console:
 
 ```ruby
 artists = Artist.ransack(name_cont: 'foo', style_cont: 'bar', m: 'or')
-=> Ransack::Search<class: Artist, base: Grouping <conditions: [
+=> RansackMongo::Search<class: Artist, base: Grouping <conditions: [
   Condition <attributes: ["name"], predicate: cont, values: ["foo"]>,
   Condition <attributes: ["style"], predicate: cont, values: ["bar"]>
   ], combinator: or>>
@@ -653,7 +653,7 @@ Memberships, and many Musicians through Memberships:
 
 ```ruby
 artists = Artist.ransack(name_cont: 'foo', musicians_email_cont: 'bar', m: 'or')
-=> Ransack::Search<class: Artist, base: Grouping <conditions: [
+=> RansackMongo::Search<class: Artist, base: Grouping <conditions: [
   Condition <attributes: ["name"], predicate: cont, values: ["foo"]>,
   Condition <attributes: ["musicians_email"], predicate: cont, values: ["bar"]>
   ], combinator: or>>
@@ -670,7 +670,7 @@ artists.result.to_sql
 
 ### Using SimpleForm
 
-If you would like to combine the Ransack and SimpleForm form builders, set the
+If you would like to combine the RansackMongo and SimpleForm form builders, set the
 `RANSACK_FORM_BUILDER` environment variable before Rails boots up, e.g. in
 `config/application.rb` before `require 'rails/all'` as shown below (and add
 `gem 'simple_form'` in your Gemfile).
@@ -683,13 +683,13 @@ require 'rails/all'
 
 ### I18n
 
-Ransack translation files are available in
-[Ransack::Locale](lib/ransack/locale). You may also be interested in one of the
-many translations for Ransack available at
+RansackMongo translation files are available in
+[RansackMongo::Locale](lib/ransack_mongo/locale). You may also be interested in one of the
+many translations for RansackMongo available at
 http://www.localeapp.com/projects/2999.
 
 Predicate and attribute translations in forms may be specified as follows (see
-the translation files in [Ransack::Locale](lib/ransack/locale) for more examples):
+the translation files in [RansackMongo::Locale](lib/ransack_mongo/locale) for more examples):
 
 locales/en.yml:
 ```yml
@@ -727,12 +727,12 @@ en:
       namespace/article:
         title: AR Namespaced Title
       namespace_article:
-        title: Old Ransack Namespaced Title
+        title: Old RansackMongo Namespaced Title
 ```
 
 ## Mongoid
 
-Ransack now works with Mongoid in the same way as Active Record, except that
+RansackMongo now works with Mongoid in the same way as Active Record, except that
 with Mongoid, associations are not currently supported. A demo app may be found
 [here](http://ransack-mongodb-demo.herokuapp.com/) and the demo source code is
 [here](https://github.com/Zhomart/ransack-mongodb-demo). A `result` method
@@ -746,14 +746,14 @@ called on a `ransack` search returns a `Mongoid::Criteria` object:
   @people = @q.result.active.order_by(updated_at: -1).limit(10)
 ```
 
-NOTE: Ransack currently works with either Active Record or Mongoid, but not
-both in the same application. If both are present, Ransack will default to
+NOTE: RansackMongo currently works with either Active Record or Mongoid, but not
+both in the same application. If both are present, RansackMongo will default to
 Active Record only. The logic is contained in
-`Ransack::Adapters#instantiate_object_mapper` should you need to override it.
+`RansackMongo::Adapters#instantiate_object_mapper` should you need to override it.
 
 ## Semantic Versioning
 
-Ransack attempts to follow semantic versioning in the format of `x.y.z`, where:
+RansackMongo attempts to follow semantic versioning in the format of `x.y.z`, where:
 
 `x` stands for a major version (new features that are not backward-compatible).
 
@@ -767,13 +767,13 @@ In other words: `Major.Minor.Patch`.
 
 To support the project:
 
-* Use Ransack in your apps, and let us know if you encounter anything that's
+* Use RansackMongo in your apps, and let us know if you encounter anything that's
 broken or missing. A failing spec to demonstrate the issue is awesome. A pull
 request with passing tests is even better!
 * Before filing an issue or pull request, be sure to read and follow the
 [Contributing Guide](CONTRIBUTING.md).
 * Please use Stack Overflow or other sites for questions or discussion not
 directly related to bug reports, pull requests, or documentation improvements.
-* Spread the word on Twitter, Facebook, and elsewhere if Ransack's been useful
+* Spread the word on Twitter, Facebook, and elsewhere if RansackMongo's been useful
 to you. The more people who are using the project, the quicker we can find and
 fix bugs!

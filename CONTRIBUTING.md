@@ -1,9 +1,9 @@
-# Contributing to Ransack
+# Contributing to RansackMongo
 
 Please take a moment to review this document to make contributing easy and
 effective for everyone involved!
 
-Ransack is an open source project and we encourage contributions.
+RansackMongo is an open source project and we encourage contributions.
 
 Please do not use the issue tracker for personal support requests. Stack
 Overflow is a better place for that where a wider community can help you!
@@ -11,7 +11,7 @@ Overflow is a better place for that where a wider community can help you!
 ## Filing an issue
 
 Good issue reports are extremely helpful!  Please only open an issue if a bug
-is caused by Ransack, is new (has not already been reported), and can be
+is caused by RansackMongo, is new (has not already been reported), and can be
 reproduced from the information you provide.
 
 Steps:
@@ -23,20 +23,20 @@ Steps:
    `master` branch in the repository.
 
 3. **Isolate the real problem** &mdash; make sure the issue is really a bug in
-   Ransack and not in your code or another gem.
+   RansackMongo and not in your code or another gem.
 
 4. **Report the issue** by providing the link to a self-contained
    gist like [this](https://gist.github.com/jonatack/63048bc5062a84ba9e09) or
    [this](https://gist.github.com/jonatack/5df41a0edb53b7bad989). Please use
-   these code examples as a bug-report template for your Ransack issue!
+   these code examples as a bug-report template for your RansackMongo issue!
 
 If you do not provide a self-contained gist and would like your issue to be reviewed, do provide at a minimum:
 
 * A comprehensive list of steps to reproduce the issue, or even better, a
   passing/failing test spec.
-* Whether you are using Ransack through another gem like ActiveAdmin,
+* Whether you are using RansackMongo through another gem like ActiveAdmin,
   SimpleForm, etc.
-* The versions of Ruby, Rails, Ransack and the database.
+* The versions of Ruby, Rails, RansackMongo and the database.
 * Any relevant stack traces ("Full trace" preferred).
 
 Issues filed without the above information or that remain open without activity
@@ -45,7 +45,7 @@ for 14 days will be closed. They can be re-opened if actionable information to r
 ## Pull requests
 
 We gladly accept pull requests to fix bugs and, in some circumstances, add new
-features to Ransack. If you'd like to contribute and wonder what would be
+features to RansackMongo. If you'd like to contribute and wonder what would be
 helpful, simply run a search for "FIXME" and "TODO" on the codebase :smiley:
 
 If you're new to contributing to open source, welcome! It can seem scary, so
@@ -76,7 +76,7 @@ Here's a quick guide:
         $ DB=mysql bundle exec rake spec
 
 5. Hack away! Please use Ruby features that are compatible down to Ruby 1.9.
-   Since version 1.5, Ransack no longer maintains Ruby 1.8 compatibility.
+   Since version 1.5, RansackMongo no longer maintains Ruby 1.8 compatibility.
 
 6. Add tests for your changes. Only refactoring and documentation changes
    require no new tests. If you are adding functionality or fixing a bug, we
@@ -103,7 +103,7 @@ Here's a quick guide:
 
 12. Push the branch up to your fork on GitHub
    (`git push origin my-new-feature`) and from GitHub submit a pull request to
-   Ransack's `master` branch.
+   RansackMongo's `master` branch.
 
 At this point you're waiting on us. We like to at least comment on, if not
 accept, pull requests within three business days (and, typically, one business

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Ransack
+module RansackMongo
   module Helpers
     describe FormBuilder do
 

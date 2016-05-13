@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Ransack
+module RansackMongo
   describe Search do
     describe '#initialize' do
       it 'removes empty conditions before building' do
@@ -94,7 +94,7 @@ module Ransack
       end
 
       it 'creates conditions for aliased attributes',
-      if: Ransack::SUPPORTS_ATTRIBUTE_ALIAS do
+      if: RansackMongo::SUPPORTS_ATTRIBUTE_ALIAS do
         s = Search.new(Person, full_name_eq: 'Ernie')
         condition = s.base[:full_name_eq]
         expect(condition).to be_a Nodes::Condition
@@ -169,7 +169,7 @@ module Ransack
       end
 
       it 'creates conditions for custom predicates that take arrays' do
-        Ransack.configure do |config|
+        RansackMongo.configure do |config|
           config.add_predicate 'ary_pred', wants_array: true
         end
 
@@ -191,7 +191,7 @@ module Ransack
 
         context 'when ignore_unknown_conditions is false' do
           before do
-            Ransack.configure { |c| c.ignore_unknown_conditions = false }
+            RansackMongo.configure { |c| c.ignore_unknown_conditions = false }
           end
 
           specify { expect { subject }.to raise_error ArgumentError }
@@ -199,7 +199,7 @@ module Ransack
 
         context 'when ignore_unknown_conditions is true' do
           before do
-            Ransack.configure { |c| c.ignore_unknown_conditions = true }
+            RansackMongo.configure { |c| c.ignore_unknown_conditions = true }
           end
 
           specify { expect { subject }.not_to raise_error }
@@ -229,7 +229,7 @@ module Ransack
 
       # FIXME: Make this spec pass for Rails 4.1 / 4.2 / 5.0 and not just 4.0 by
       # commenting out lines 221 and 242 to run the test. Addresses issue #374.
-      # https://github.com/activerecord-hackery/ransack/issues/374
+      # https://github.com/activerecord-hackery/ransack_mongo/issues/374
       #
       it 'evaluates conditions for multiple `belongs_to` associations to the
       same table contextually',

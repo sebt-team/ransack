@@ -1,6 +1,6 @@
 require 'mongoid_spec_helper'
 
-module Ransack
+module RansackMongo
   module Adapters
     module Mongoid
       describe Context do
@@ -35,7 +35,7 @@ module Ransack
 
         it 'contextualizes strings to attributes' do
           attribute = subject.contextualize 'name'
-          expect(attribute).to be_a ::Ransack::Adapters::Mongoid::Attributes::Attribute
+          expect(attribute).to be_a ::RansackMongo::Adapters::Mongoid::Attributes::Attribute
           expect(attribute.name.to_s).to eq 'name'
           # expect(attribute.relation.table_alias).to eq 'parents_people'
         end

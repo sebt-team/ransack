@@ -1,6 +1,6 @@
 require 'mongoid_spec_helper'
 
-module Ransack
+module RansackMongo
   describe Search do
     describe '#initialize' do
       it "removes empty conditions before building" do
@@ -157,7 +157,7 @@ module Ransack
       end
 
       it 'creates conditions for custom predicates that take arrays' do
-        Ransack.configure do |config|
+        RansackMongo.configure do |config|
           config.add_predicate 'ary_pred', :wants_array => true
         end
 
@@ -174,7 +174,7 @@ module Ransack
 
         context "when ignore_unknown_conditions is false" do
           before do
-            Ransack.configure { |c| c.ignore_unknown_conditions = false }
+            RansackMongo.configure { |c| c.ignore_unknown_conditions = false }
           end
 
           specify { expect { subject }.to raise_error ArgumentError }
@@ -182,7 +182,7 @@ module Ransack
 
         context "when ignore_unknown_conditions is true" do
           before do
-            Ransack.configure { |c| c.ignore_unknown_conditions = true }
+            RansackMongo.configure { |c| c.ignore_unknown_conditions = true }
           end
 
           specify { expect { subject }.not_to raise_error }

@@ -3,106 +3,106 @@
 ## Unreleased
 ### Added
 
-*   Support Mongoid 5. PR [#636](https://github.com/activerecord-hackery/ransack/pull/636), commit
-    [9e5faf4](https://github.com/activerecord-hackery/ransack/commit/9e5faf4).
+*   Support Mongoid 5. PR [#636](https://github.com/activerecord-hackery/ransack_mongo/pull/636), commit
+    [9e5faf4](https://github.com/activerecord-hackery/ransack_mongo/commit/9e5faf4).
 
     *Josef Šimánek*
 
 *   Added optional block argument for the `sort_link` method. PR
-    [#604](https://github.com/activerecord-hackery/ransack/pull/604).
+    [#604](https://github.com/activerecord-hackery/ransack_mongo/pull/604).
 
     *Andrea Dal Ponte*
 
 *   Added `ransack_alias` to allow users to customize the names for long
     ransack field names. PR
-    [#623](https://github.com/activerecord-hackery/ransack/pull/623).
+    [#623](https://github.com/activerecord-hackery/ransack_mongo/pull/623).
 
     *Ray Zane*
 
 *   Added support for searching on attributes that have been added to
     Active Record models with `alias_attribute` (Rails >= 4 only). PR
-    [#592](https://github.com/activerecord-hackery/ransack/pull/592), commit
-    [549342a](https://github.com/activerecord-hackery/ransack/commit/549342a).
+    [#592](https://github.com/activerecord-hackery/ransack_mongo/pull/592), commit
+    [549342a](https://github.com/activerecord-hackery/ransack_mongo/commit/549342a).
 
     *Marten Schilstra*
 
 *   Add ability to globally hide sort link order indicator arrows with
-    `Ransack.configure#hide_sort_order_indicators = true`. PR
-    [#577](https://github.com/activerecord-hackery/ransack/pull/577), commit
-    [95d4591](https://github.com/activerecord-hackery/ransack/commit/95d4591).
+    `RansackMongo.configure#hide_sort_order_indicators = true`. PR
+    [#577](https://github.com/activerecord-hackery/ransack_mongo/pull/577), commit
+    [95d4591](https://github.com/activerecord-hackery/ransack_mongo/commit/95d4591).
 
     *Josh Hunter*, *Jon Atack*
 
 *   Add test for `ActionController:Parameter` object params in `sort_link` to
-    ensure Ransack is handling the Rails 5 changes correctly. Commit
-    [b1cfed8](https://github.com/activerecord-hackery/ransack/commit/b1cfed8).
+    ensure RansackMongo is handling the Rails 5 changes correctly. Commit
+    [b1cfed8](https://github.com/activerecord-hackery/ransack_mongo/commit/b1cfed8).
 
     *Ryan Wood*
 
 *   Add failing tests to facilitate work on issue
-    [#566](https://github.com/activerecord-hackery/ransack/issues/566)
+    [#566](https://github.com/activerecord-hackery/ransack_mongo/issues/566)
     of passing boolean values to search scopes. PR
-    [#575](https://github.com/activerecord-hackery/ransack/pull/575).
+    [#575](https://github.com/activerecord-hackery/ransack_mongo/pull/575).
 
     *Marcel Eeken*
 
 *   Add Brazilian Portuguese i18n locale file (`pt-BR.yml`). PR
-    [#581](https://github.com/activerecord-hackery/ransack/pull/581).
+    [#581](https://github.com/activerecord-hackery/ransack_mongo/pull/581).
 
     *Diego Henrique Domingues*
 
 *   Add Indonesian (Bahasa) i18n locale file (`id.yml`). PR
-    [#612](https://github.com/activerecord-hackery/ransack/pull/612).
+    [#612](https://github.com/activerecord-hackery/ransack_mongo/pull/612).
 
     *Adam Pahlevi Baihaqi*
 
 *   Add Japanese i18n locale file (`ja.yml`). PR
-    [#622](https://github.com/activerecord-hackery/ransack/pull/622).
+    [#622](https://github.com/activerecord-hackery/ransack_mongo/pull/622).
 
     *Masanobu Mizutani*
 
 ### Fixed
 
 *   Fix using aliased attributes in association searches, and add a failing
-    spec. PR [#602](https://github.com/activerecord-hackery/ransack/pull/602).
+    spec. PR [#602](https://github.com/activerecord-hackery/ransack_mongo/pull/602).
 
     *Marten Schilstra*
 
 *   Replace Active Record `table_exists?` API that was deprecated
     [here](https://github.com/rails/rails/commit/152b85f) in Rails 5. Commit
-    [c9d2297](https://github.com/activerecord-hackery/ransack/commit/c9d2297).
+    [c9d2297](https://github.com/activerecord-hackery/ransack_mongo/commit/c9d2297).
 
     *Jon Atack*
 
 *   Adapt to changes in Rails 5 where AC::Parameters composes a HWIA instead of
     inheriting from Hash starting from Rails commit rails/rails@14a3bd5. Commit
-    [ceafc05](https://github.com/activerecord-hackery/ransack/commit/ceafc05).
+    [ceafc05](https://github.com/activerecord-hackery/ransack_mongo/commit/ceafc05).
 
     *Jon Atack*
 
 *   Fix test `#sort_link with hide order indicator set to true` to fail properly
-    ([4f65b09](https://github.com/activerecord-hackery/ransack/commit/4f65b09)).
+    ([4f65b09](https://github.com/activerecord-hackery/ransack_mongo/commit/4f65b09)).
     This spec, added in
-    [#473](https://github.com/activerecord-hackery/ransack/pull/473), tested
+    [#473](https://github.com/activerecord-hackery/ransack_mongo/pull/473), tested
     the presence of the attribute name instead of the absence of the order
     indicators and did not fail when it should.
 
     *Josh Hunter*, *Jon Atack*
 
 *   Fix rspec-mocks `stub` deprecation warnings when running the tests. Commit
-    [600892e](https://github.com/activerecord-hackery/ransack/commit/600892e).
+    [600892e](https://github.com/activerecord-hackery/ransack_mongo/commit/600892e).
 
     *Jon Atack*
 
 *   Revert
-    [f858dd6](https://github.com/activerecord-hackery/ransack/commit/f858dd6).
-    Fixes [#553](https://github.com/activerecord-hackery/ransack/issues/553)
+    [f858dd6](https://github.com/activerecord-hackery/ransack_mongo/commit/f858dd6).
+    Fixes [#553](https://github.com/activerecord-hackery/ransack_mongo/issues/553)
     performance regression with the SQL Server adapter.
 
     *sschwing3*
 
 *   Fix invalid Chinese I18n locale file name by replacing "zh" with "zh-CN".
-    PR [#590](https://github.com/activerecord-hackery/ransack/pull/590).
+    PR [#590](https://github.com/activerecord-hackery/ransack_mongo/pull/590).
 
     *Ethan Yang*
 
@@ -110,14 +110,14 @@
 
 *   Memory/speed perf improvement: Freeze strings in array global constants and
     move from using global string constants to frozen strings
-    ([381a83c](https://github.com/activerecord-hackery/ransack/commit/381a83c)
+    ([381a83c](https://github.com/activerecord-hackery/ransack_mongo/commit/381a83c)
     and
-    [ce114ec](https://github.com/activerecord-hackery/ransack/commit/ce114ec)).
+    [ce114ec](https://github.com/activerecord-hackery/ransack_mongo/commit/ce114ec)).
 
     *Jon Atack*
 
 *   Escape underscore `_` wildcard characters with PostgreSQL and MySQL. PR
-    [#584](https://github.com/activerecord-hackery/ransack/issues/584).
+    [#584](https://github.com/activerecord-hackery/ransack_mongo/issues/584).
 
     *Igor Dobryn*
 
@@ -126,34 +126,34 @@
 ### Added
 
 *   Add Mongoid support for referenced/embedded relations. PR
-    [#498](https://github.com/activerecord-hackery/ransack/pull/498).
+    [#498](https://github.com/activerecord-hackery/ransack_mongo/pull/498).
     TODO: Missing spec coverage! Add documentation!
 
     *Penn Su*
 
 *   Add German i18n locale file (`de.yml`). PR
-    [#537](https://github.com/activerecord-hackery/ransack/pull/537).
+    [#537](https://github.com/activerecord-hackery/ransack_mongo/pull/537).
 
     *Philipp Weissensteiner*
 
 ### Fixed
 
 *   Fix
-    [#499](https://github.com/activerecord-hackery/ransack/issues/499) and
-    [#549](https://github.com/activerecord-hackery/ransack/issues/549).
-    Ransack now loads only Active Record if both Active Record and Mongoid are
+    [#499](https://github.com/activerecord-hackery/ransack_mongo/issues/499) and
+    [#549](https://github.com/activerecord-hackery/ransack_mongo/issues/549).
+    RansackMongo now loads only Active Record if both Active Record and Mongoid are
     running to avoid the two adapters overriding each other. This clarifies
-    that Ransack currently knows how to work with only one database adapter
+    that RansackMongo currently knows how to work with only one database adapter
     active at a time. PR
-    [#541](https://github.com/activerecord-hackery/ransack/pull/541).
+    [#541](https://github.com/activerecord-hackery/ransack_mongo/pull/541).
 
     *ASnow (Большов Андрей)*
 
-*   Fix [#299](https://github.com/activerecord-hackery/ransack/issues/299)
+*   Fix [#299](https://github.com/activerecord-hackery/ransack_mongo/issues/299)
     `attribute_method?` parsing for attribute names containing `_and_`
     and `_or_`. Attributes named like `foo_and_bar` or `foo_or_bar` are
     recognized now instead of running failing checks for `foo` and `bar`.
-    PR [#562](https://github.com/activerecord-hackery/ransack/pull/562).
+    PR [#562](https://github.com/activerecord-hackery/ransack_mongo/pull/562).
 
     *Ryohei Hoshi*
 
@@ -161,7 +161,7 @@
     `default_timezone = :local` (system time) and the `Time.zone` is set to
     elsewhere, then `Date.current` does not match what the query produces for
     the stored timestamps. Resolved by setting everything to UTC. PR
-    [#561](https://github.com/activerecord-hackery/ransack/pull/561).
+    [#561](https://github.com/activerecord-hackery/ransack_mongo/pull/561).
 
     *Andrew Vit*
 
@@ -172,16 +172,16 @@
     are applied. Avoid selecting records from joins that would normally be
     filtered out if they were selected from the base table. Only applies to
     Rails 3, as this issue was fixed since Rails 4. PR
-    [#560](https://github.com/activerecord-hackery/ransack/pull/560).
+    [#560](https://github.com/activerecord-hackery/ransack_mongo/pull/560).
 
     *Andrew Vit*
 
 *   Fix RSpec `its` method deprecation warning: "Use of rspec-core's its
     method is deprecated. Use the rspec-its gem instead"
-    ([c09aa17](https://github.com/activerecord-hackery/ransack/commit/c09aa17)).
+    ([c09aa17](https://github.com/activerecord-hackery/ransack_mongo/commit/c09aa17)).
 
 *   Fix deprecated RSpec syntax in `grouping_spec.rb`
-    ([ba92a0b](https://github.com/activerecord-hackery/ransack/commit/ba92a0b)).
+    ([ba92a0b](https://github.com/activerecord-hackery/ransack_mongo/commit/ba92a0b)).
 
     *Jon Atack*
 
@@ -189,18 +189,18 @@
 
 *   Upgrade gemspec dependencies: MySQL2 from '0.3.14' to '0.3.18', and RSpec
     from '~> 2.14.0' to '~> 2' which loads 2.99
-    ([000cd22](https://github.com/activerecord-hackery/ransack/commit/000cd22)).
+    ([000cd22](https://github.com/activerecord-hackery/ransack_mongo/commit/000cd22)).
 
 *   Upgrade spec suite to RSpec 3 `expect` syntax backward compatible with
     RSpec 2.9
-    ([87cd36d](https://github.com/activerecord-hackery/ransack/commit/87cd36d)
+    ([87cd36d](https://github.com/activerecord-hackery/ransack_mongo/commit/87cd36d)
     and
-    [d296caa](https://github.com/activerecord-hackery/ransack/commit/d296caa)).
+    [d296caa](https://github.com/activerecord-hackery/ransack_mongo/commit/d296caa)).
 
 *   Various FormHelper refactorings
-    ([17dd97a](https://github.com/activerecord-hackery/ransack/commit/17dd97a)
+    ([17dd97a](https://github.com/activerecord-hackery/ransack_mongo/commit/17dd97a)
     and
-    [29a73b9](https://github.com/activerecord-hackery/ransack/commit/29a73b9)).
+    [29a73b9](https://github.com/activerecord-hackery/ransack_mongo/commit/29a73b9)).
 
 *   Various documentation updates.
 
@@ -219,10 +219,10 @@
 
 ### Fixed
 
-*   An improved fix for the "undefined method `model_name` for Ransack::Search"
-    issue [#518](https://github.com/activerecord-hackery/ransack/issues/518)
+*   An improved fix for the "undefined method `model_name` for RansackMongo::Search"
+    issue [#518](https://github.com/activerecord-hackery/ransack_mongo/issues/518)
     affecting Rails 4.2.1 and 5.0.0. This fix allows us to remove the
-    ActionView patch in Ransack version 1.6.4.
+    ActionView patch in RansackMongo version 1.6.4.
 
     *Gleb Mazovetskiy*
 
@@ -252,7 +252,7 @@
 *   [WIP/experimental] Add compatibility with Rails 5/master and Arel 7.
 
 *   Update the [Contributing Guide](CONTRIBUTING.md) with detailed steps for
-    contributing to Ransack.
+    contributing to RansackMongo.
 
 *   Broaden the test suite database options in `schema.rb` and add
     code documentation.
@@ -262,12 +262,12 @@
     *Jon Atack*
 
 *   Allow `:wants_array` to be set to `false` in the predicate options
-    ([#32](https://github.com/activerecord-hackery/ransack/issues/32)).
+    ([#32](https://github.com/activerecord-hackery/ransack_mongo/issues/32)).
 
     *Michael Pavling*
 
 *   Add a failing spec for issue
-    [#374](https://github.com/activerecord-hackery/ransack/issues/374).
+    [#374](https://github.com/activerecord-hackery/ransack_mongo/issues/374).
 
     *Jamie Davidson*, *Jon Atack*
 
@@ -295,12 +295,12 @@
     *Jon Atack*
 
 *   Enable scoping I18n by 'ransack.models'
-    ([#514](https://github.com/activerecord-hackery/ransack/pull/514)).
+    ([#514](https://github.com/activerecord-hackery/ransack_mongo/pull/514)).
 
     *nagyt234*
 
 *   Add ransacker arguments
-    ([#513](https://github.com/activerecord-hackery/ransack/pull/513)).
+    ([#513](https://github.com/activerecord-hackery/ransack_mongo/pull/513)).
 
     *Denis Tataurov*, *Jon Atack*
 
@@ -308,8 +308,8 @@
 ## Version 1.6.3 - 2015-01-21
 
 *   Fix a regression
-    ([#496](https://github.com/activerecord-hackery/ransack/issues/496)) caused
-    by [ee571fe](https://github.com/activerecord-hackery/ransack/commit/ee571fe)
+    ([#496](https://github.com/activerecord-hackery/ransack_mongo/issues/496)) caused
+    by [ee571fe](https://github.com/activerecord-hackery/ransack_mongo/commit/ee571fe)
     where passing a multi-parameter attribute (like `date_select`) raised
     `RuntimeError: can't add a new key into hash during iteration`, and add a
     regression spec for the issue.
@@ -326,7 +326,7 @@
 ## Version 1.6.2 - 2015-01-14
 
 *   Fix a regression
-    ([#494](https://github.com/activerecord-hackery/ransack/issues/494))
+    ([#494](https://github.com/activerecord-hackery/ransack_mongo/issues/494))
     where passing an array of routes to `search_form_for` no longer worked,
     and add a failing/passing test that would have caught the issue.
 
@@ -335,10 +335,10 @@
 
 ## Version 1.6.1 - 2015-01-14
 
-*   Fix a regression with using `in` predicates caused by PR [#488](https://github.com/activerecord-hackery/ransack/pull/488)) and add a test.
+*   Fix a regression with using `in` predicates caused by PR [#488](https://github.com/activerecord-hackery/ransack_mongo/pull/488)) and add a test.
 
 *   README improvements to clarify `sort_link` syntax with associations and
-    Ransack#search vs #ransack.
+    RansackMongo#search vs #ransack.
 
 *   Default the Gemfile to Rails 4-2-stable.
 
@@ -348,18 +348,18 @@
 ## Version 1.6.0 - 2015-01-12
 ### Added
 
-*   Add support for using Ransack with `Mongoid 4.0` without associations
-    ([PR #407](https://github.com/activerecord-hackery/ransack/pull/407)).
+*   Add support for using RansackMongo with `Mongoid 4.0` without associations
+    ([PR #407](https://github.com/activerecord-hackery/ransack_mongo/pull/407)).
 
     *Zhomart Mukhamejanov*
 
 *   Add support and tests for passing stringy booleans for ransackable scopes
-    ([PR #460](https://github.com/activerecord-hackery/ransack/pull/460)).
+    ([PR #460](https://github.com/activerecord-hackery/ransack_mongo/pull/460)).
 
     *Josh Kovach*
 
 *   Add an sort_link option to not display sort order indicator arrows
-    ([PR #473](https://github.com/activerecord-hackery/ransack/pull/473)).
+    ([PR #473](https://github.com/activerecord-hackery/ransack_mongo/pull/473)).
 
     *Fred Bergman*
 
@@ -371,23 +371,23 @@
 ### Fixed
 
 *   Fix passing arrays to ransackers with Rails 4.2 / Arel 6.0 (pull requests
-    [#486](https://github.com/activerecord-hackery/ransack/pull/486) and
-    [#488](https://github.com/activerecord-hackery/ransack/pull/488)).
+    [#486](https://github.com/activerecord-hackery/ransack_mongo/pull/486) and
+    [#488](https://github.com/activerecord-hackery/ransack_mongo/pull/488)).
 
     *Idean Labib*
 
 *   Make `search_form_for`'s default `:as` option respect the custom search key
     if it has been set
-    ([PR #470](https://github.com/activerecord-hackery/ransack/pull/470)).
+    ([PR #470](https://github.com/activerecord-hackery/ransack_mongo/pull/470)).
     Prior to this change, if you set a custom `search_key` option in the
-    Ransack initializer file, you'd have to also pass an `as: :whatever` option
+    RansackMongo initializer file, you'd have to also pass an `as: :whatever` option
     to all of the search forms. Fixes
-    [#92](https://github.com/activerecord-hackery/ransack/issues/92).
+    [#92](https://github.com/activerecord-hackery/ransack_mongo/issues/92).
 
     *Robert Speicher*
 
 *   Fix sorting on polymorphic associations (missing downcase)
-    ([PR #467](https://github.com/activerecord-hackery/ransack/pull/467)).
+    ([PR #467](https://github.com/activerecord-hackery/ransack_mongo/pull/467)).
 
     *Eugen Neagoe*
 
@@ -419,7 +419,7 @@
 *   Replace `string#freeze` instances with top level constants to reduce string
     allocations in Ruby < 2.1.
 
-*   Remove unneeded `Ransack::` namespacing on most of the constants.
+*   Remove unneeded `RansackMongo::` namespacing on most of the constants.
 
 *   In enumerable methods, pass a symbol as an argument instead of a block.
 
@@ -429,8 +429,8 @@
 
 *   Replace `#search` with `#ransack` class methods in the README and wiki
     code examples. Enabling the `#search` alias by default may possibly be
-    deprecated in the next major release (Ransack v.2.0.0) to address
-    [#369](https://github.com/activerecord-hackery/ransack/issues/369).
+    deprecated in the next major release (RansackMongo v.2.0.0) to address
+    [#369](https://github.com/activerecord-hackery/ransack_mongo/issues/369).
 
     *Jon Atack*
 
@@ -462,14 +462,14 @@
 ## Version 1.5.0 - 2014-10-26
 ### Added
 
-*   Add support for multiple sort fields and default orders in Ransack
+*   Add support for multiple sort fields and default orders in RansackMongo
     `sort_link` helpers
-    ([PR #438](https://github.com/activerecord-hackery/ransack/pull/438)).
+    ([PR #438](https://github.com/activerecord-hackery/ransack_mongo/pull/438)).
 
     *Caleb Land*, *James u007*
 
 *   Add tests for `lteq`, `lt`, `gteq` and `gt` predicates. They are also
-    tested in Arel, but testing them in Ransack has proven useful to detect
+    tested in Arel, but testing them in RansackMongo has proven useful to detect
     issues.
 
     *Jon Atack*
@@ -558,7 +558,7 @@
     attributes, associations, sorts and scopes.
 
 *   Add new documentation in the README explaining in more detail how to use
-    scopes for searching with Ransack.
+    scopes for searching with RansackMongo.
 
 *   Begin a CHANGELOG.
 
@@ -570,7 +570,7 @@
 
     *Andreas Philippi*
 
-*   Fix the params hash being modified by `Search.new` and the Ransack scope.
+*   Fix the params hash being modified by `Search.new` and the RansackMongo scope.
 
     *Daniel Rikowski*
 
@@ -589,9 +589,9 @@
 
 ### Changed
 
-*   Refactor Ransack::Translate.
+*   Refactor RansackMongo::Translate.
 
-*   Rewrite much of the Ransack README documentation, including the
+*   Rewrite much of the RansackMongo README documentation, including the
     Associations section code examples and the Authorizations section detailing
     how to whitelist attributes, associations, sorts and scopes.
 
@@ -616,7 +616,7 @@
 
 *   Improve boolean predicates’ handling of `false` values.
 
-*   Allow configuring Ransack to raise on instead of ignore unknown search
+*   Allow configuring RansackMongo to raise on instead of ignore unknown search
     conditions.
 
 *   Allow passing blank values to search without crashing.

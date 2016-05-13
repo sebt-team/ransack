@@ -4,7 +4,7 @@ require 'rspec/core/rake_task'
 Bundler::GemHelper.install_tasks
 
 RSpec::Core::RakeTask.new(:spec) do |rspec|
-  ENV['SPEC'] = 'spec/ransack/**/*_spec.rb'
+  ENV['SPEC'] = 'spec/ransack_mongo/**/*_spec.rb'
   # With Rails 3, using `--backtrace` raises 'invalid option' when testing.
   # With Rails 4 and 5 it can be uncommented to see the backtrace:
   #
@@ -24,7 +24,7 @@ task :default do
   end
 end
 
-desc "Open an irb session with Ransack and the sample data used in specs"
+desc "Open an irb session with RansackMongo and the sample data used in specs"
 task :console do
   require 'irb'
   require 'irb/completion'
@@ -33,13 +33,13 @@ task :console do
   IRB.start
 end
 
-desc "Open an irb session with Ransack, Mongoid and the sample data used in specs"
+desc "Open an irb session with RansackMongo, Mongoid and the sample data used in specs"
 task :mongoid_console do
   require 'irb'
   require 'irb/completion'
   require 'pry'
   require 'mongoid'
-  require File.expand_path('../lib/ransack.rb', __FILE__)
+  require File.expand_path('../lib/ransack_mongo.rb', __FILE__)
   require File.expand_path('../spec/mongoid/support/schema.rb', __FILE__)
   ARGV.clear
   Pry.start

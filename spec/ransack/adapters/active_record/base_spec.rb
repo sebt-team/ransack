@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Ransack
+module RansackMongo
   module Adapters
     module ActiveRecord
       describe Base do
@@ -66,7 +66,7 @@ module Ransack
             end
 
             # TODO: Implement a way to pass true/false values like 0 or 1 to
-            # scopes (e.g. with `in` / `not_in` predicates), without Ransack
+            # scopes (e.g. with `in` / `not_in` predicates), without RansackMongo
             # converting them to true/false boolean values instead.
 
             # it 'passes true values to scopes', focus: true  do
@@ -373,7 +373,7 @@ module Ransack
           end
 
           context 'attribute aliased column names',
-          if: Ransack::SUPPORTS_ATTRIBUTE_ALIAS do
+          if: RansackMongo::SUPPORTS_ATTRIBUTE_ALIAS do
             it 'should be translated to original column name' do
               s = Person.ransack(full_name_eq: 'Nicolas Cage')
               expect(s.result.to_sql).to match(
@@ -519,7 +519,7 @@ module Ransack
             it { should_not include 'only_sort' }
             it { should_not include 'only_admin' }
 
-            if Ransack::SUPPORTS_ATTRIBUTE_ALIAS
+            if RansackMongo::SUPPORTS_ATTRIBUTE_ALIAS
               it { should include 'full_name' }
             end
           end

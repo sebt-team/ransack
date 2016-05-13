@@ -15,4 +15,4 @@ en:
       namespace/article:
         title: AR Namespaced Title
       namespace_article:
-        title: Old Ransack Namespaced Title
+        title: Old RansackMongo Namespaced Title

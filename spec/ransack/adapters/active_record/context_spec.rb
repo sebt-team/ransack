@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Ransack
+module RansackMongo
   module Adapters
     module ActiveRecord
       version = ::ActiveRecord::VERSION

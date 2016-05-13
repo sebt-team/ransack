@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Ransack
+module RansackMongo
   module Helpers
     describe FormHelper do
 
@@ -381,7 +381,7 @@ module Ransack
 
       describe '#sort_link with config set to globally hide order indicators' do
         before do
-          Ransack.configure { |c| c.hide_sort_order_indicators = true }
+          RansackMongo.configure { |c| c.hide_sort_order_indicators = true }
         end
         subject { @controller.view_context
           .sort_link(
@@ -395,7 +395,7 @@ module Ransack
 
       describe '#sort_link with config set to globally show order indicators' do
         before do
-          Ransack.configure { |c| c.hide_sort_order_indicators = false }
+          RansackMongo.configure { |c| c.hide_sort_order_indicators = false }
         end
         subject { @controller.view_context
           .sort_link(
@@ -450,7 +450,7 @@ module Ransack
 
       describe '#search_form_for with custom default search key' do
         before do
-          Ransack.configure { |c| c.search_key = :example }
+          RansackMongo.configure { |c| c.search_key = :example }
         end
         subject {
           @controller.view_context

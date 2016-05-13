@@ -1,4 +1,4 @@
-module RansackHelper
+module RansackMongoHelper
   def quote_table_name(table)
     ActiveRecord::Base.connection.quote_table_name(table)
   end
